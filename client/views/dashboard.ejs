@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="dashboard.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-between header">
+            <div class="col-md-6">
+                <h1>Welcome, <%= user.username %>!</h1>
+            </div>
+            <div class="col-md-4 right">
+                <button type="button" class="btn btn-danger" id="logout">Logout</button>
+            </div>
+        </div>
+        <div class="row games">
+            <div class="col-md-12">
+                <h3>Open Games:</h3>
+                <div id="games"></div>
+                <button type="button" class="btn btn-success" id="newgame">Create New Game</button>
+            </div>
+        </div>
+        <div class="row chat">
+            <div class="col-md-9">
+                <div id="chatbox">
+
+                </div>
+                <div class="user">
+                    <form id="chat">
+                        <span class="name"><%= user.username %></span>: <input type="text" name="chat" id="message">
+                        <input type="submit" value="Send Message">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3 id="room_user_list">Users in Lobby</h3>
+                <ul id="users">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

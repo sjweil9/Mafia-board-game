@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="signin.js"></script>
+    <link rel="stylesheet" href="signin.css">
+    <% if (status == "register") { %>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        })
+    </script>
+    <% } %>
+</head>
+<body class="signin">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class='form'>
+        
+                    <form action='/login' method='POST' class='login-form'>
+                        <h1>Log In</h1>
+                        <input type="text" name="username" class="form-control" placeholder='Username'>
+                        <input type="password" name="pword" class="form-control" placeholder='Password'>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <% if (status === "login") { %>
+                            <% if (typeof(errors) === 'string') { %>
+                                <p class="error"><%= errors %></p>
+                            <% } else if(typeof(errors) !== 'undefined') { %>
+                                <% for (var key in errors.errors) { %>
+                                    <p class="error"><%= errors.errors[key].message %></p>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                        <p class="message">Not registered?
+                            <a href="#">Create an account</a>
+                        </p>
+                    </form>
+        
+                    <form action='/register' method='POST' class='register-form'>
+                        <h1>Register</h1>
+                        <input type="text" name="username" class="form-control" placeholder='Username'>
+                        <input type="password" name="pword" class="form-control" placeholder='Password'>
+                        <input type="password" name="conf" class="form-control" placeholder='Confirm Password'>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <% if (status === "register") { %>
+                            <% if (typeof(errors) === 'string') { %>
+                                <p class="error"><%= errors %></p>
+                            <% } else if(typeof(errors) !== 'undefined') { %>
+                                <% for (var key in errors.errors) { %>
+                                    <p class="error"><%= errors.errors[key].message %></p>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                        <p class="message">Already registered?
+                            <a href="#">Sign In</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

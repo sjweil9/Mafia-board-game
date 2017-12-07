@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mafia</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/game.js"></script>
+    <link rel="stylesheet" href="/activegame.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <% for (player of game.users) { %>
+            <div class="col-md-4">
+                <div class="user">
+                    <h4><%= player.username %></h4>
+                    <p>Placeholder for user data</p>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <div class="row">
+            <div id="map">
+                <h4 id="game_id"><%= game._id %></h4>
+                <h4>Placeholder for map</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="actions">
+                    <button type="button" class="btn btn-secondary" data-action="construct">Construct</button>
+                    <button type="button" class="btn btn-secondary" data-action="produce">Produce</button>
+                    <button type="button" class="btn btn-secondary" data-action="recruit">Recruit</button>
+                    <button type="button" class="btn btn-secondary" data-action="move">Move</button>
+                    <button type="button" class="btn btn-secondary" data-action="sell">Sell</button>
+                    <button type="button" class="btn btn-secondary" data-action="bribe">Bribe</button>
+                </div>
+                <button type="button" class="btn btn-danger" id="confirm">Confirm Moves</button>
+            </div>
+            <div class="col-md-6">
+                <div id="chatbox">
+                    
+                </div>
+                <div class="sendchat">
+                    <form id="chat">
+                        <span class="name"><%= user.username %></span>: <input type="text" name="chat" id="message">
+                        <input type="submit" value="Send Message">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

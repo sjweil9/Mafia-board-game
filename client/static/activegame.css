@@ -1,0 +1,56 @@
+div.user {
+    border: 1px solid black;
+    padding: 1em;
+    width: 95%;
+}
+
+div#map {
+    margin-top: 2em;
+    border: 1px solid black;
+    height: 20em;
+    width: 100%;
+}
+
+div.row {
+    margin-top: 1em;
+}
+
+p.sysmessage {
+    color: green;
+}
+
+div#chatbox {
+    width: 95%;
+    height: 10em;
+    border: 1px solid black;
+    padding: 1.5em;
+    margin-bottom: .5em;
+    text-align: left;
+    overflow-y: scroll;
+}
+
+div#chatbox p {
+    text-align: left;
+}
+
+div#chatbox span.myname {
+    font-weight: bold;
+    color: blue;
+}
+
+div#chatbox span.name {
+    font-weight: bold;
+    color: red;
+}
+
+div.sendchat {
+    width: 95%;
+    border: 1px solid black;
+    height: 3em;
+    padding: .5em;
+}
+
+div.sendchat span.name {
+    font-weight: bold;
+    color: blue;
+}
